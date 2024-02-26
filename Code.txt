@@ -1,0 +1,254 @@
+//1. niz int [10] min,max, po redu sortirati
+
+#include <iostream>
+
+using namespace std;
+
+void Random() {
+	srand(time(0));
+}
+
+void Inicijalizaja(int niz[10]) {
+	for (int i = 0; i < 10; i++)
+	{
+		niz[i] = rand();
+	}
+}
+
+void Niz(int niz[10]) {
+	for (int i = 0; i < 10; i++) {
+		cout << niz[i] << " ";
+	}
+}
+
+int max(int niz[10]) {
+	int max = niz[0];
+	for (int i = 0; i < 10; i++) {
+		if (niz[i] > max) {
+			max = niz[i];
+		}
+	}
+	return max;
+}
+
+
+int min(int niz[10]) {
+	int min = niz[0];
+	for (int i = 0; i < 10; i++) {
+		if (niz[i] < min) {
+			min = niz[i];
+		}
+	}
+	return min;
+}
+
+void descending(int niz[10]) {
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			int pholder;
+			if (niz[i] > niz[j]) {
+				pholder = niz[i];
+				niz[i] = niz[j];
+				niz[j] = pholder;
+			}
+
+		}
+
+	}
+	 for (int i = 0; i < 10; i++) {
+		cout << niz[i] << " ";
+	}
+}
+
+void ascending(int niz[10]) {
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			int pholder;
+			if (niz[i] < niz[j]) {
+				pholder = niz[i];
+				niz[i] = niz[j];
+				niz[j] = pholder;
+			}
+
+		}
+
+	}
+	for (int i = 0; i < 10; i++) {
+		cout << niz[i] << " ";
+	}
+}
+
+
+int main()
+{
+	int niz[10];
+	Random();
+	Inicijalizaja(niz);
+	Niz(niz);
+	cout << endl;
+	cout << max(niz) << endl;
+	cout << min(niz) << endl;
+	descending(niz);
+	cout << endl;
+	ascending(niz);
+	
+
+	
+
+	/*for (int i = 0; i < 10; i++) {
+		cout << niz[i] << " ";
+	}
+	int max, min;
+	max = niz[0];
+	min = niz[0];
+
+	for (int i = 0; i < 10; i++) {
+		if (niz[i] > max) {
+			max = niz[i];
+		}
+	}
+
+	for (int i = 0; i < 10; i++) {
+		if (niz[i] < min) {
+			min = niz[i];
+		}
+	}
+	cout << endl;
+	cout << min << " " << max << endl;
+
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			int pholder;
+			if (niz[i] > niz[j]) {
+				pholder = niz[i];
+				niz[i] = niz[j];
+				niz[j] = pholder;
+			}
+
+		}
+		
+	}
+	for (int i = 0; i < 10; i++) {
+		cout << niz[i] << " ";
+	}*/
+
+}
+
+2.prethodni sa strkturama
+
+//1. niz int [10] min,max, po redu sortirati
+
+#include <iostream>
+
+using namespace std;
+
+struct Niz {
+	int duzina;
+	int* elementi;
+};
+
+
+
+void Random() {
+	srand(time(0));
+}
+
+void Inicijalizaja(Niz niz) {
+	for (int i = 0; i < niz.duzina; i++)
+	{
+		niz.elementi[i] = rand();
+	}
+}
+
+void Ispis(Niz niz) {
+	for (int i = 0; i < niz.duzina; i++) {
+		cout << niz.elementi[i] << " ";
+	}
+}
+
+
+int max(Niz niz) {
+	int max = niz.elementi[0];
+	for (int i = 0; i < niz.duzina; i++) {
+		if (niz.elementi[i] > max) {
+			max = niz.elementi[i];
+		}
+	}
+	return max;
+}
+
+
+int min(Niz niz) {
+	int min = niz.elementi[0];
+	for (int i = 0; i < niz.duzina; i++) {
+		if (niz.elementi[i] < min) {
+			min = niz.elementi[i];
+		}
+	}
+	return min;
+}
+
+void descending(Niz niz) {
+	for (int i = 0; i < niz.duzina; i++) {
+		for (int j = 0; j < niz.duzina; j++) {
+			int pholder;
+			if (niz.elementi[i] > niz.elementi[j]) {
+				pholder = niz.elementi[i];
+				niz.elementi[i] = niz.elementi[j];
+				niz.elementi[j] = pholder;
+			}
+
+		}
+
+	}
+	 for (int i = 0; i < niz.duzina; i++) {
+		cout << niz.elementi[i] << " ";
+	}
+}
+
+//void ascending(Niz niz) {
+//	for (int i = 0; i < niz.duzina; i++) {
+//		for (int j = 0; j < n; j++) {
+//			int pholder;
+//			if (niz[i] < niz[j]) {
+//				pholder = niz[i];
+//				niz[i] = niz[j];
+//				niz[j] = pholder;
+//			}
+//
+//		}
+//
+//	}
+//	for (int i = 0; i < niz.duzina; i++) {
+//		cout << niz[i] << " ";
+//	}
+//}
+
+
+int main()
+{
+	Random();
+	
+	Niz niz;
+
+	cin >> niz.duzina;
+
+	niz.elementi = new int [niz.duzina];
+
+
+	Inicijalizaja(niz);
+	Ispis(niz);
+	cout << endl;
+	cout << max(niz) << endl;
+	cout << min(niz) << endl;
+	descending(niz);
+	cout << endl;
+	//ascending(niz);
+	
+
+}
+
+
+
+
+
