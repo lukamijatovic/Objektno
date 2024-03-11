@@ -1,0 +1,31 @@
+#include <iostream>
+//#include "Header.h"
+#include "Header1.h"
+
+
+int main() {
+
+	/*Particle electron(
+		9.1e-31,
+		1.6e-10,
+		0,
+		0,
+		0,
+		1,
+		1,
+		1
+	);
+
+	electron.PrintPosition();
+	electron.Move(1e-6);
+	electron.PrintPosition();*/
+
+	Array array(10);
+	
+	for (int i = 0; i < 10; i++)
+	{
+		array.SetValue(i, i);
+	}
+
+	array.Print();
+}
