@@ -1,0 +1,64 @@
+#include <iostream>
+
+using namespace std;
+
+class Array {
+private:
+	int* element;
+	int n;
+public:
+	Array(int n)
+	{
+		if (n <= 0) {
+			cout << "n mora biti veci od 0" << endl;
+			return;
+		}
+		element = new int[n];
+		this->n = n;
+	}
+	~Array() {
+		delete[] element;
+	}
+
+	Array(int* element, int n) {
+		if (n <= 0) {
+			throw invalid_argument("n mora biti veci od 0");
+			return;
+		}
+		if (element == NULL) {
+			throw invalid_argument("element ne smije biti null");
+			return;
+		}
+
+		this->element = element;
+		this->n = n;
+	}
+
+	void SetValue(int value, int index)
+	{
+		if (index<0 || index>n)
+		{
+			throw invalid_argument("drugi index");
+
+		}
+		element[index] = value;
+	}
+
+	void Print()
+	{
+		for (int i = 0; i < n; i++)
+		{
+			cout << element[i] << " ";
+		}
+	}
+
+	int getValue(int index)
+	{
+		if (index<0 || index>n)
+		{
+			cout << "drugi index" << endl;
+			return 0;
+		}
+		return element[index];
+	}
+};
